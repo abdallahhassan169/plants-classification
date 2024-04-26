@@ -38,6 +38,11 @@ def predict():
         return jsonify({'prediction': predicted_class ,'full-prediction':full , 'more':info[int(np.round(predictions[0]))]})
     except Exception  as e:
         return jsonify({"err":e})
+    
+
+@app.route('/a', methods=['get'])
+def predict():
+    return "aaaaa"
 # Run the app
 if __name__ == '__main__':
     app.run(debug=True)
