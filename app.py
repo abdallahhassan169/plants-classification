@@ -41,7 +41,7 @@ def predict():
     
 
 @app.route('/a', methods=['get'])
-def predict():
+def pred():
     return "aaaaa"
 # Run the app
 if __name__ == '__main__':
