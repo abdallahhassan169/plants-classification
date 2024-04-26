@@ -16,7 +16,7 @@ def predict():
     try:
     # Receive image file
         file = request.files['image']
-        
+        print("reached")
         # Read image
         img = Image.open(file.stream)
         
@@ -33,7 +33,7 @@ def predict():
         predicted_class = class_names[int(np.round(predictions[0]))]
         info = [  """Aglaonema, also known as Chinese evergreen, is a genus of flowering plants native to tropical and subtropical regions of Asia. They are prized as ornamental houseplants for their attractive foliage and adaptability to indoor conditions. With various cultivars available, Aglaonema plants exhibit a range of leaf shapes, colors, and patterns, making them versatile and popular choices for indoor gardens.""" , "The spider plant (Chlorophytum comosum) is a popular indoor plant with long, arching leaves and small plantlets that dangle from stems, prized for its easy care and air-purifying qualities." ]
         full = {"Aglaonema" : str(1-predictions[0])[1:7] , "Spider": str(predictions[0])[1:7] }
-        
+        print(predicted_class)
         # Return predictions
         return jsonify({'prediction': predicted_class ,'full-prediction':full , 'more':info[int(np.round(predictions[0]))]})
     except Exception  as e:
